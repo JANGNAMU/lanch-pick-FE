@@ -1,38 +1,93 @@
-.App {
-  text-align: center;
+/* global styles */
+.hidden { display: none !important;}
+
+/* title */
+.title-wrap {
+  padding-top: 72px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 60px;
+  color: #000000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* category */
+.category-wrap{ 
+  width: 430px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-flow: wrap row;
+  justify-content: space-evenly;
+  gap: 20px 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.category {
+  display: block;
+  width: 135px;
+  padding: 17px;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 35px;
+  text-align: center;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 30px;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.category.pick{
+  background: #5C5C5C;
+  color: #FFFFFF;
 }
+
+/* contents */
+.contents-wrap {
+  width: 100%;
+  height: calc(100vh - 322px);
+  position: relative;
+}
+
+/* roulette */
+.roulette-wrap {
+  width: 1000px;
+  height: 1000px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  background: #EEEEEE;
+  border-radius: 100%;
+}
+.btn-roulette{
+    display: block;
+    width: 270px;
+    height: 270px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    font-weight: 700;
+    color: #000000;
+    background: #D9D9D9;
+    border-radius: 100%;
+    border: 0;
+    z-index: 2;
+}
+.btn-roulette::before {
+  content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100px);
+    width: 0px;
+    height: 0px;
+    border-left: 15px solid transparent;
+    border-bottom: 100px solid #000000;
+    border-right: 15px solid transparent;
+}
+
+/* modal */
