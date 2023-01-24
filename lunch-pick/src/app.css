@@ -1,93 +1,124 @@
 /* global styles */
+canvas { transition: 2s; }
 .hidden { display: none !important;}
 
 /* title */
 .title-wrap {
-  padding-top: 72px;
+  padding-top: 56px;
 }
 
 .title {
-  font-size: 50px;
-  font-weight: 700;
-  line-height: 60px;
-  color: #000000;
+  width: 438px;
+  height: 76px;
+  background: url(./images/title-lunchpick.png) no-repeat 0 / contain;
 }
 
 /* category */
 .category-wrap{ 
-  width: 430px;
+  width: 500px;
   display: flex;
   flex-flow: wrap row;
   justify-content: space-evenly;
-  gap: 20px 10px;
+  gap: 16px;
 }
 
 .category {
   display: block;
-  width: 135px;
-  padding: 17px;
-  font-size: 30px;
-  font-weight: 400;
-  line-height: 35px;
+  width: 155px;
+  height: 70px;
+  padding: 16px;
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 38px;
   text-align: center;
-  background: #FFFFFF;
-  border: 1px solid #000000;
-  border-radius: 30px;
-  box-sizing: border-box;
-  cursor: pointer;
+  color: #9B8946;
+  background: #FFFFFF4D;
+  border-radius: 16px;
+    box-sizing: border-box;
+    cursor: pointer;
 }
 
 .category.pick{
-  background: #5C5C5C;
-  color: #FFFFFF;
+  font-weight: 600;
+  color: #000000;
+  background: #FFFFFF;
 }
 
 /* contents */
 .contents-wrap {
   width: 100%;
-  height: calc(100vh - 322px);
+  height: calc(100vh - 328px);
   position: relative;
+  margin-top: 74px;
 }
 
 /* roulette */
 .roulette-wrap {
-  width: 1000px;
-  height: 1000px;
+  width: 1232px;
+  height: 1232px;
   position: absolute;
-  top: 50%;
+  bottom: 0;
   left: 50%;
-  transform: translate(-50%, -20%);
-  background: #EEEEEE;
+  transform: translate(-50%, 35%);
+  border: 20px solid #1F1F1F;
   border-radius: 100%;
 }
-.btn-roulette{
-    display: block;
-    width: 270px;
-    height: 270px;
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 50px;
-    font-weight: 700;
-    color: #000000;
-    background: #D9D9D9;
-    border-radius: 100%;
-    border: 0;
-    z-index: 2;
-}
-.btn-roulette::before {
+
+.roulette-wrap::before {
   content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -100px);
-    width: 0px;
-    height: 0px;
-    border-left: 15px solid transparent;
-    border-bottom: 100px solid #000000;
-    border-right: 15px solid transparent;
+  display: block;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, -5px);
+  border-top: 44px solid #1F1F1F;
+  border-left: 47px solid transparent;
+  border-right: 47px solid transparent;
+}
+
+.roulette-wrap[data-state=ready] {
+  background: #FFFFFF;
+}
+
+.roulette-wrap[data-state=ready]::after {
+  content: '';
+  display: block;
+  width: 311px;
+  height: 216px;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, 153px);
+  background: url(./images/text-lunchpick.png) no-repeat 0 / contain;
+}
+
+.roulette {
+  width: 1212px;
+  height: 1212px;
+  border-radius: 100%;
+}
+
+.btn-roulette{
+  display: block;
+  width: 351px;
+  height: 351px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 65px);
+  font-size: 50px;
+  font-weight: 700;
+  color: #000000;
+  background: url(./images/btn-roulette.png) no-repeat 0 / contain;
+  border-radius: 100%;
+  border: 0;
+  z-index: 2;
+}
+
+.btn-roulette[data-action=start] {
+  background: url(./images/btn-start-roulette.png) no-repeat 0 / contain;
 }
 
 /* modal */

@@ -1,0 +1,100 @@
+[
+    {
+        "MENU_CD": 1,
+        "MENU_CATEGORY_CD": "01",
+        "MENU_NAME": "새우볶음밥",
+        "RESTAURANT_NAME": "김밥천국",
+        "RESTAURANT_LOCATION": "용산점"
+    },
+    {
+        "MENU_CD": 2,
+        "MENU_CATEGORY_CD": "02",
+        "MENU_NAME": "짜장면",
+        "RESTAURANT_NAME": "홍콩반점",
+        "RESTAURANT_LOCATION": "강남점"
+    },
+    {
+        "MENU_CD": 3,
+        "MENU_CATEGORY_CD": "03",
+        "MENU_NAME": "마라탕",
+        "RESTAURANT_NAME": "탕화쿵푸",
+        "RESTAURANT_LOCATION": "모란점"
+    },
+    {
+        "MENU_CD": 4,
+        "MENU_CATEGORY_CD": "04",
+        "MENU_NAME": "샌드위치",
+        "RESTAURANT_NAME": "세븐일레븐",
+        "RESTAURANT_LOCATION": "용산점"
+    },
+    {
+        "MENU_CD": 5,
+        "MENU_CATEGORY_CD": "05",
+        "MENU_NAME": "삼겹살",
+        "RESTAURANT_NAME": "석이네 숯불구이",
+        "RESTAURANT_LOCATION": "이촌점"
+    },
+    {
+        "MENU_CD": 6,
+        "MENU_CATEGORY_CD": "06",
+        "MENU_NAME": "밀웜구이",
+        "RESTAURANT_NAME": "밀웜서식지",
+        "RESTAURANT_LOCATION": "용산점"
+    },
+    {
+        "MENU_CD": 7,
+        "MENU_CATEGORY_CD": "01",
+        "MENU_NAME": "김치볶음밥",
+        "RESTAURANT_NAME": "김밥천국",
+        "RESTAURANT_LOCATION": "용산점"
+    },
+    {
+        "MENU_CD": 8,
+        "MENU_CATEGORY_CD": "02",
+        "MENU_NAME": "돈코츠라멘",
+        "RESTAURANT_NAME": "겐조라멘",
+        "RESTAURANT_LOCATION": "용산점"
+    },
+    {
+        "MENU_CD": 9,
+        "MENU_CATEGORY_CD": "03",
+        "MENU_NAME": "김치찌개",
+        "RESTAURANT_NAME": "김밥천국",
+        "RESTAURANT_LOCATION": "용산점"
+    },
+    {
+        "MENU_CD": 10,
+        "MENU_CATEGORY_CD": "04",
+        "MENU_NAME": "핫도그",
+        "RESTAURANT_NAME": "명량핫도그",
+        "RESTAURANT_LOCATION": "용산점"
+    },
+    {
+        "MENU_CD": 11,
+        "MENU_CATEGORY_CD": "05",
+        "MENU_NAME": "항정살",
+        "RESTAURANT_NAME": "새마을식당",
+        "RESTAURANT_LOCATION": "용산점"
+    },
+    {
+        "MENU_CD": 12,
+        "MENU_CATEGORY_CD": "06",
+        "MENU_NAME": "기타",
+        "RESTAURANT_NAME": "기타파는집",
+        "RESTAURANT_LOCATION": "용산점"
+    },
+    {
+        "MENU_CD": 13,
+        "MENU_CATEGORY_CD": "01",
+        "MENU_NAME": "마파두부덮밥",
+        "RESTAURANT_NAME": "야래향",
+        "RESTAURANT_LOCATION": "용산점"
+    },
+    {
+        "MENU_CD": 14,
+        "MENU_CATEGORY_CD": "02",
+        "MENU_NAME": "차돌짬뽕",
+        "RESTAURANT_NAME": "홍콩반점",
+        "RESTAURANT_LOCATION": "용산점"
+    }
+  ]

@@ -9,7 +9,7 @@ function Roulette(){
     return (
         <>
             <canvas className="roulette-wrap" ref={rouletteRef}>
-                {/* <RouletteItems /> */}
+            
             </canvas>
             <button type='button' className='btn-roulette' data-action='start'>PICK</button>
         </>
