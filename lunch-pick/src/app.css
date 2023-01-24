@@ -62,6 +62,7 @@ canvas { transition: 2s; }
   transform: translate(-50%, 35%);
   border: 20px solid #1F1F1F;
   border-radius: 100%;
+  box-sizing: border-box;
 }
 
 .roulette-wrap::before {
@@ -122,3 +123,26 @@ canvas { transition: 2s; }
 }
 
 /* modal */
+.result-view{
+
+}
+
+.result-wrap{
+  
+}
+
+.result-wrap::before{
+
+}
+
+.result-title {
+
+}
+
+.result-name{
+
+}
+
+.btn-result{
+  
+}
