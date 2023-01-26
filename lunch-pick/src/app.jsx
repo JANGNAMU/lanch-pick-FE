@@ -28,7 +28,7 @@ const startRoulette = () => {
  */
 const getMenuData = async (categoryCode) => {
   const res = await fetch(
-    links.Dev + categoryCode
+    links.Local + categoryCode
   ).then((res) => res.json());
 
   console.info('categoryCode : ', categoryCode);
