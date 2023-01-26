@@ -5,8 +5,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 const links = {
-  Local : 'https://jsonplaceholder.typicode.com/comments',
-  Dev : 'http://3.39.47.35/pickmenu',
+  Local : 'localhost:9090',
+  Dev : 'http://3.39.47.35:9090/pickmenu',
   Stg : '',
   Prod : ''
 }
@@ -35,9 +35,14 @@ const getMenuData = async (categoryCode) => {
   lunchPick(res)
 }
 
+/**
+ * 선택된 카테고리 코드 배열을 받아 결과 표출을 위해 전달
+ * @param {Array} resultArray 선택된 카테고리의 Code 배열
+ */
 function lunchPick(resultArray){
   const randomNum = Math.floor(Math.random() * resultArray.length);
   console.info('API 통신값 : ', resultArray, resultArray[randomNum].MENU_NAME)
+
   alert('▶︎ 오늘의 Pick ◀︎ \n' + resultArray[randomNum].MENU_NAME )
 }
 
