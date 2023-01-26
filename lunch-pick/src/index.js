@@ -1,17 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+// import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 
 import './index.css';
 import App from './app';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// const root = document.getElementById('root');
+// ReactDOM.render(React.createElement('div'), root);
 
-root.render(
-  // use strict
-  <React.StrictMode>
+// root.render(
+//   // use strict
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>
+// );
+
+
+ReactDOM.render(
+  <>
     <App />
-  </React.StrictMode>
-);
+  </>, document.getElementById('root')
+)
 
 reportWebVitals();

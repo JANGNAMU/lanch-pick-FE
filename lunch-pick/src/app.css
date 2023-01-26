@@ -1,6 +1,8 @@
 /* global styles */
-canvas { transition: 2s; }
-.hidden { display: none !important;}
+.hidden {
+  opacity: 0 !important;
+  z-index: -1 !important;
+}
 
 /* title */
 .title-wrap {
@@ -8,40 +10,61 @@ canvas { transition: 2s; }
 }
 
 .title {
-  width: 438px;
-  height: 76px;
-  background: url(./images/title-lunchpick.png) no-repeat 0 / contain;
+  display: block;
+  font-size: 38px;
+  line-height: 40px;
+  text-align: left;
+  letter-spacing: -0.01em;
+  color: #000000;
+}
+
+.title b {
+  font-weight: 700;
 }
 
 /* category */
 .category-wrap{ 
-  width: 500px;
+  width: 640px;
   display: flex;
   flex-flow: wrap row;
   justify-content: space-evenly;
-  gap: 16px;
+  gap: 24px;
 }
 
 .category {
-  display: block;
-  width: 155px;
-  height: 70px;
-  padding: 16px;
-  font-size: 34px;
-  font-weight: 500;
-  line-height: 38px;
-  text-align: center;
-  color: #9B8946;
+  width: 308px;
+  height: 176px;
+  display: flex;
+  align-items: center;
+  padding: 56px 32px;
   background: #FFFFFF4D;
   border-radius: 16px;
-    box-sizing: border-box;
-    cursor: pointer;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
-.category.pick{
+h4.catagory-name {
+  min-width: 64px;
+  height: 64px;
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 60px;
+  text-indent: 88px;
+  color: #9B8946;
+}
+
+.catagory-name.c-all{background: url(./images/icon/ico-category-all.png) no-repeat top 0px left 0px / contain}
+.catagory-name.c-01{background: url(./images/icon/ico-category-01.png) no-repeat top 0px left 0px / contain}
+.catagory-name.c-02{background: url(./images/icon/ico-category-02.png) no-repeat top 0px left 0px / contain}
+.catagory-name.c-03{background: url(./images/icon/ico-category-03.png) no-repeat top 0px left 0px / contain}
+.catagory-name.c-04{background: url(./images/icon/ico-category-04.png) no-repeat top 0px left 0px / contain}
+.catagory-name.c-05{background: url(./images/icon/ico-category-05.png) no-repeat top 0px left 0px / contain}
+
+.category.pick{ background: #FFFFFF; }
+
+.category.pick h4 {
   font-weight: 600;
   color: #000000;
-  background: #FFFFFF;
 }
 
 /* contents */
@@ -50,55 +73,6 @@ canvas { transition: 2s; }
   height: calc(100vh - 328px);
   position: relative;
   margin-top: 74px;
-}
-
-/* roulette */
-.roulette-wrap {
-  width: 1232px;
-  height: 1232px;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 35%);
-  border: 20px solid #1F1F1F;
-  border-radius: 100%;
-  box-sizing: border-box;
-}
-
-.roulette-wrap::before {
-  content: '';
-  display: block;
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  transform: translate(-50%, -5px);
-  border-top: 44px solid #1F1F1F;
-  border-left: 47px solid transparent;
-  border-right: 47px solid transparent;
-}
-
-.roulette-wrap[data-state=ready] {
-  background: #FFFFFF;
-}
-
-.roulette-wrap[data-state=ready]::after {
-  content: '';
-  display: block;
-  width: 311px;
-  height: 216px;
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  transform: translate(-50%, 153px);
-  background: url(./images/text-lunchpick.png) no-repeat 0 / contain;
-}
-
-.roulette {
-  width: 1212px;
-  height: 1212px;
-  border-radius: 100%;
 }
 
 .btn-roulette{
@@ -112,37 +86,72 @@ canvas { transition: 2s; }
   font-size: 50px;
   font-weight: 700;
   color: #000000;
-  background: url(./images/btn-roulette.png) no-repeat 0 / contain;
+  background: url(./images/button/btn-roulette.png) no-repeat 0 / contain;
   border-radius: 100%;
   border: 0;
   z-index: 2;
 }
 
 .btn-roulette[data-action=start] {
-  background: url(./images/btn-start-roulette.png) no-repeat 0 / contain;
+  background: url(./images/button/btn-start-roulette.png) no-repeat 0 / contain;
 }
 
 /* modal */
 .result-view{
-
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 138px 155px 222px;
+  box-sizing: border-box;
+  background: #F8532F;
+  opacity: 1;
+  z-index: 5;
+  transition: 1s;
 }
 
 .result-wrap{
-  
+  height: 100%;
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.result-wrap::before{
-
+.result-header {
+  width: 370px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 64px;
 }
 
 .result-title {
-
+  width: 300px;
+  height: 250px;
+  background: url(./images/banner/banner-pikari.png) no-repeat 0 / contain;
 }
 
-.result-name{
-
+.result-name {
+  font-family: 'Cafe24Ssurround';
+  font-size: 96px;
+  line-height: 110px;
+  font-weight: 700;
+  color: #FFFFFF;
 }
 
 .btn-result{
-  
+  display: block;
+  padding: 56px 100px;
+  font-size: 32px;
+  font-weight: 500;
+  color: #FFFFFFE5;
+  letter-spacing: -0.01em;
+  background: #F96444;
+  border: 0;
+  border-radius: 200px;
 }

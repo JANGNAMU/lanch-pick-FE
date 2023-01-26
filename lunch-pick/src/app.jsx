@@ -28,7 +28,7 @@ const startRoulette = () => {
  */
 const getMenuData = async (categoryCode) => {
   const res = await fetch(
-    links.Local + categoryCode
+    links.Dev + categoryCode
   ).then((res) => res.json());
 
   console.info('categoryCode : ', categoryCode);
@@ -42,14 +42,23 @@ const getMenuData = async (categoryCode) => {
 function lunchPick(resultArray){
   const randomNum = Math.floor(Math.random() * resultArray.length);
   console.info('API 통신값 : ', resultArray, resultArray[randomNum].MENU_NAME)
-
-  alert('▶︎ 오늘의 Pick ◀︎ \n' + resultArray[randomNum].MENU_NAME )
+  const resultName = document.querySelector('.result-name')
+  resultName.innerText = resultArray[randomNum].MENU_NAME;
+  const resultView = document.querySelector('.result-view')
+  resultView.classList.remove('hidden')
+  // alert('▶︎ 오늘의 Pick ◀︎ \n' + selectedMenu)
 }
 
 function handleCategory(e){
-  const target = e.target;
+  let target = e.target;
+
+  target = target.tagName === 'H4' ?
+    target.parentElement : target
+
+
   const categoryCode = target.getAttribute('data-category');
   const categories = document.querySelectorAll('.category-wrap > li')
+  const nomalCategories = document.querySelectorAll('.category-wrap > li:not([data-category=all])')
   const allCategory = document.querySelector('li[data-category=all]')
   const isAll = categoryCode === 'all'
 
@@ -60,13 +69,17 @@ function handleCategory(e){
     categories.forEach(item => item.classList.remove('pick'))
     target.classList.add('pick')
   } else {
+    // pick 된 친구가 아니라면
     target.classList.value.indexOf('pick') > -1 ?
       target.classList.remove('pick') :
       target.classList.add('pick');
 
-    [...categories].filter( cate => cate.classList.value.indexOf('pick') > -1) .length === 5 ?
-      allCategory.classList.add('pick') :
+    if([...nomalCategories].filter( cates => cates.classList.value.indexOf('pick') > -1) .length === 5){
+      nomalCategories.forEach( cate => cate.classList.remove('pick'))
+      allCategory.classList.add('pick');
+    } else {
       allCategory.classList.remove('pick')
+    }
   }
   
   currentSelected = [...categories].filter( cate => cate.classList.value.indexOf('pick') > -1 ).map( picked => picked.getAttribute('data-category') )
@@ -91,55 +104,68 @@ function modifyCategory(selected){
   console.info('수정) 선택한 카테고리 : ', selectedCategory, isAll)
 }
 
+
+function reSelectMenu(e){
+  const resultView = document.querySelector('.result-view')
+  resultView.classList.add('hidden')
+}
+
+
 function App(){
+
+
+
   /* 렌더링 되는 화면 */
   return (
-    <>
+    <div id='root'>
       <div className="title-wrap">
-        <h1 className='title'></h1>
+        <h3 className='title'>오늘 <b>진짜 뭐</b> 먹지?</h3>
       </div>
       <ul className='category-wrap' >
           <li 
             data-category="all"
             className="category pick"
             onClick={ e => handleCategory(e)}
-          > 전체
-          </li>
-          <li 
-            data-category="01"
-            className="category" 
-            onClick={ e => handleCategory(e)}
-          > 밥
-          </li>
-          <li 
-            data-category="02"
-            className="category" 
-            onClick={ e => handleCategory(e)}
-          > 면
-          </li>
-          <li 
-            data-category="03"
-            className="category" 
-            onClick={ e => handleCategory(e)}
-          > 국∙찌개
+          > 
+          <h4 className='catagory-name c-all'>전체</h4>
           </li>
           <li 
             data-category="04"
             className="category" 
             onClick={ e => handleCategory(e)}
-          > 간편
+          > 
+          <h4 className='catagory-name c-04'>간편</h4>
+          </li>
+          <li 
+            data-category="01"
+            className="category" 
+            onClick={ e => handleCategory(e)}
+          > 
+          <h4 className='catagory-name c-01'>밥</h4>
+          </li>
+          <li 
+            data-category="02"
+            className="category" 
+            onClick={ e => handleCategory(e)}
+          > 
+          <h4 className='catagory-name c-02'>면</h4>
+          </li>
+          <li 
+            data-category="03"
+            className="category" 
+            onClick={ e => handleCategory(e)}
+          > 
+          <h4 className='catagory-name c-03'>국∙찌개</h4>
           </li>
           <li 
             data-category="05"
             className="category" 
             onClick={ e => handleCategory(e)}
-          > 고기
+          > 
+          <h4 className='catagory-name c-05'>고기</h4>
           </li>
       </ul>
       <div className='contents-wrap'>
-        <div className="roulette-wrap" data-state="ready" >
-          <div className='roulette' data-state='init'> </div>
-        </div>
         <button 
           type='button'
           className='btn-roulette'
@@ -147,19 +173,25 @@ function App(){
           onClick={ e => startRoulette() }
         ></button>
       </div>
+      <section className='roulette-'>
+
+      </section>
+
       {/* 결과 표출 영역 */}
-      <div className='result-view'>
-        <div className='result-wrap'>
-          <h4 className='result-title'></h4>
-          <h2 className='result-name'></h2>
+      <section className='result-view hidden'>
+        <div className='result-wrap'> 
+          <div className='result-header'>
+            <h2 className='result-title'></h2>
+            <h4 className='result-name'></h4>
+          </div>
           <button
             type='button'
             className='btn-result'
-            // onClick={}
+            onClick={ e => reSelectMenu(e)}
           > 다른거 추천해줘!</button>
         </div>
-      </div>
-    </>
+      </section>
+    </div>
   )
 }
 
