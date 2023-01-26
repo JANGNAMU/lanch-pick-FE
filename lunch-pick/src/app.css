@@ -6,20 +6,31 @@
 
 /* title */
 .title-wrap {
-  padding-top: 56px;
+  width: 100%;
+  display: block;
+  padding: 80px 40px 0;
+  box-sizing: border-box;
 }
 
 .title {
   display: block;
   font-size: 38px;
+  font-weight: 500;
   line-height: 40px;
-  text-align: left;
   letter-spacing: -0.01em;
   color: #000000;
 }
 
 .title b {
-  font-weight: 700;
+  font-weight: 800;
+}
+
+/* contents */
+.contents-wrap {
+  width: 100%;
+  padding: 0 40px;
+  position: relative;
+  box-sizing: border-box;
 }
 
 /* category */
@@ -37,7 +48,7 @@
   display: flex;
   align-items: center;
   padding: 56px 32px;
-  background: #FFFFFF4D;
+  background: #FFFFFF;
   border-radius: 16px;
   box-sizing: border-box;
   cursor: pointer;
@@ -50,7 +61,7 @@ h4.catagory-name {
   font-weight: 500;
   line-height: 60px;
   text-indent: 88px;
-  color: #9B8946;
+  color: #979694;
 }
 
 .catagory-name.c-all{background: url(./images/icon/ico-category-all.png) no-repeat top 0px left 0px / contain}
@@ -60,40 +71,42 @@ h4.catagory-name {
 .catagory-name.c-04{background: url(./images/icon/ico-category-04.png) no-repeat top 0px left 0px / contain}
 .catagory-name.c-05{background: url(./images/icon/ico-category-05.png) no-repeat top 0px left 0px / contain}
 
-.category.pick{ background: #FFFFFF; }
+.category.pick{ 
+  background: #FFFFFF; 
+  border: 2px solid #F8532F;
+}
 
 .category.pick h4 {
   font-weight: 600;
   color: #000000;
 }
 
-/* contents */
-.contents-wrap {
-  width: 100%;
-  height: calc(100vh - 328px);
-  position: relative;
-  margin-top: 74px;
-}
-
 .btn-roulette{
   display: block;
-  width: 351px;
-  height: 351px;
+  width: 100%;
+  height: 210px;
   position: fixed;
   bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 65px);
   font-size: 50px;
   font-weight: 700;
   color: #000000;
-  background: url(./images/button/btn-roulette.png) no-repeat 0 / contain;
-  border-radius: 100%;
+  background: url(./images/text/btn-pick.png) no-repeat top 56px left 50% #F8532F;
+  background-size: 180px;
   border: 0;
-  z-index: 2;
+  border-radius: 40px 40px 0 0;
 }
 
-.btn-roulette[data-action=start] {
-  background: url(./images/button/btn-start-roulette.png) no-repeat 0 / contain;
+.btn-roulette::after {
+  content: '';
+  display: block;
+  width: 530px;
+  height: 156px;
+  position: absolute;
+  left: 50%;
+  bottom: 168px;
+  transform: translate(-50%, -6px);
+  background: url(./images/banner/banner-bottom-pikari.png) no-repeat 0 / contain;
+  cursor: pointer;
 }
 
 /* modal */
@@ -105,12 +118,12 @@ h4.catagory-name {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 138px 155px 222px;
+  padding: 138px 65px 222px;
   box-sizing: border-box;
   background: #F8532F;
   opacity: 1;
   z-index: 5;
-  transition: 1s;
+  transition: .7s;
 }
 
 .result-wrap{
@@ -122,7 +135,7 @@ h4.catagory-name {
 }
 
 .result-header {
-  width: 370px;
+  width: 590px;
   height: 420px;
   display: flex;
   flex-direction: column;

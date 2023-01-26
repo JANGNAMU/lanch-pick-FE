@@ -83,8 +83,13 @@ function handleCategory(e){
   }
   
   currentSelected = [...categories].filter( cate => cate.classList.value.indexOf('pick') > -1 ).map( picked => picked.getAttribute('data-category') )
+
   console.info('선택된 카테고리 : ', currentSelected);
-  
+
+  if(currentSelected.length === 0){
+    allCategory.classList.add('pick');
+  }
+
   modifyCategory(currentSelected)
 }
 
@@ -99,6 +104,10 @@ function modifyCategory(selected){
     [...selected].forEach( current => {
       selectedCategory.push(current)
     })
+  }
+
+  if([...selected].length === 0){
+    selectedCategory.push('all')
   }
 
   console.info('수정) 선택한 카테고리 : ', selectedCategory, isAll)
@@ -117,65 +126,64 @@ function App(){
 
   /* 렌더링 되는 화면 */
   return (
-    <div id='root'>
+    <>
       <div className="title-wrap">
         <h3 className='title'>오늘 <b>진짜 뭐</b> 먹지?</h3>
       </div>
-      <ul className='category-wrap' >
-          <li 
-            data-category="all"
-            className="category pick"
-            onClick={ e => handleCategory(e)}
-          > 
-          <h4 className='catagory-name c-all'>전체</h4>
-          </li>
-          <li 
-            data-category="04"
-            className="category" 
-            onClick={ e => handleCategory(e)}
-          > 
-          <h4 className='catagory-name c-04'>간편</h4>
-          </li>
-          <li 
-            data-category="01"
-            className="category" 
-            onClick={ e => handleCategory(e)}
-          > 
-          <h4 className='catagory-name c-01'>밥</h4>
-          </li>
-          <li 
-            data-category="02"
-            className="category" 
-            onClick={ e => handleCategory(e)}
-          > 
-          <h4 className='catagory-name c-02'>면</h4>
-          </li>
-          <li 
-            data-category="03"
-            className="category" 
-            onClick={ e => handleCategory(e)}
-          > 
-          <h4 className='catagory-name c-03'>국∙찌개</h4>
-          </li>
-          <li 
-            data-category="05"
-            className="category" 
-            onClick={ e => handleCategory(e)}
-          > 
-          <h4 className='catagory-name c-05'>고기</h4>
-          </li>
-      </ul>
       <div className='contents-wrap'>
+        <ul className='category-wrap' >
+            <li 
+              data-category="all"
+              className="category pick"
+              onClick={ e => handleCategory(e)}
+            > 
+            <h4 className='catagory-name c-all'>전체</h4>
+            </li>
+            <li 
+              data-category="04"
+              className="category" 
+              onClick={ e => handleCategory(e)}
+            > 
+            <h4 className='catagory-name c-04'>간편</h4>
+            </li>
+            <li 
+              data-category="01"
+              className="category" 
+              onClick={ e => handleCategory(e)}
+            > 
+            <h4 className='catagory-name c-01'>밥</h4>
+            </li>
+            <li 
+              data-category="02"
+              className="category" 
+              onClick={ e => handleCategory(e)}
+            > 
+            <h4 className='catagory-name c-02'>면</h4>
+            </li>
+            <li 
+              data-category="03"
+              className="category" 
+              onClick={ e => handleCategory(e)}
+            > 
+            <h4 className='catagory-name c-03'>국∙찌개</h4>
+            </li>
+            <li 
+              data-category="05"
+              className="category" 
+              onClick={ e => handleCategory(e)}
+            > 
+            <h4 className='catagory-name c-05'>고기</h4>
+            </li>
+        </ul>
+      </div>
         <button 
           type='button'
           className='btn-roulette'
           data-action='start'
           onClick={ e => startRoulette() }
         ></button>
-      </div>
-      <section className='roulette-'>
-
-      </section>
+        
+      {/* <section className='roulette'></section> */}
 
       {/* 결과 표출 영역 */}
       <section className='result-view hidden'>
@@ -191,7 +199,7 @@ function App(){
           > 다른거 추천해줘!</button>
         </div>
       </section>
-    </div>
+    </>
   )
 }
 
