@@ -1,8 +1,5 @@
 import React, { Component, useRef } from 'react';
 import './app.css';
-import { createRef } from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
 
 const links = {
   Local : 'localhost:9090',
@@ -120,6 +117,30 @@ function reSelectMenu(e){
 }
 
 
+function geoOk(position){
+  const latitude = position.coords.latitude    // 위도
+  const longitude = position.coords.longitude  // 경도
+  console.info(`현재 유저의 위치(위도 / 경도) : ${latitude} / ${longitude}`)
+  
+  var coord = new kakao.maps.LatLng(latitude, longitude);
+  var callback = function(result, status) {
+      if (status === kakao.maps.services.Status.OK) {
+          console.log('그런 너를 마주칠까 ' + result[0].address.address_name + '을 못가');
+      }
+  };
+
+  geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+}
+
+function geoDeny(){
+  alert('위치 정보를 받아올 수 없습니다. 서비스를 원활히 사용할 수 없습니다.')
+}
+
+function getGeolocation(e){
+  e.preventDefault();
+  navigator.geolocation.getCurrentPosition(geoOk, geoDeny)
+}
+
 function App(){
 
 
@@ -129,6 +150,11 @@ function App(){
     <>
       <div className="title-wrap">
         <h3 className='title'>오늘 <b>진짜 뭐</b> 먹지?</h3>
+        <button
+          type='button'
+          className='btn-geolocation'
+          onClick={ e => getGeolocation(e)}
+        >🧭</button>
       </div>
       <div className='contents-wrap'>
         <ul className='category-wrap' >

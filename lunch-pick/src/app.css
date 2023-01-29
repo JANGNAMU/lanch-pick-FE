@@ -7,7 +7,9 @@
 /* title */
 .title-wrap {
   width: 100%;
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 80px 40px 0;
   box-sizing: border-box;
 }
@@ -23,6 +25,13 @@
 
 .title b {
   font-weight: 800;
+}
+
+.btn-geolocation{
+  font-size: 40px;
+  background: none;
+  border: 0;
+  cursor: pointer;
 }
 
 /* contents */
